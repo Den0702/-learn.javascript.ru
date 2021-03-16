@@ -1,0 +1,43 @@
+<script>
+  class Clock {
+    constructor({ template }) {
+      this.template = template;
+    }
+    time() {
+      console.clear();
+
+      let time = new Date();
+      let hours = time.getHours();
+      if (hours < 10) {
+        hours = '0' + hours;
+      }
+      let minutes = time.getMinutes();
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      let seconds = time.getSeconds();
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+
+      let tmNow = this.template
+        .replace('h', hours)
+        .replace('m', minutes)
+        .replace('s', seconds);
+
+      console.log(tmNow);
+    }
+
+    start() {
+      this.time();
+      this.timer = setInterval(() => this.time(), 1000);
+    }
+
+    stop() {
+      clearInterval(this.timer);
+    }
+  }
+
+  let clock = new Clock({ template: 'h:m:s' });
+  clock.start();
+</script>

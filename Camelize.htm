@@ -1,0 +1,20 @@
+<script>
+'use strict';
+function camelize(str) {
+  const splittedStr = str.split('');
+  
+  for (const [key, value] of Object.entries(splittedStr)) {
+    if(value == '-'){
+      const currentKey = parseInt(key);
+      const nextKey = parseInt(key) + 1;
+      splittedStr[nextKey] = 
+              splittedStr[nextKey].toUpperCase();
+      splittedStr.splice(currentKey, 1);
+    }
+  }
+  return splittedStr.join('');
+}
+
+console.log(camelize('list-style-image'));
+console.log(camelize('-webkit-transition'));
+</script>

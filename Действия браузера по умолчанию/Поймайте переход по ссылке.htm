@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #contents {
+      padding: 5px;
+      border: 1px green solid;
+    }
+  </style>
+</head>
+
+<body>
+
+  <fieldset id="contents">
+    <legend>#contents</legend>
+    <p>
+      Как насчёт того, чтобы прочитать <a href="http://wikipedia.org">Википедию</a> или посетить 
+      <a href="http://w3.org"><i>W3.org </i></a> и узнать о современных стандартах? 
+      А может пройти новый курс на <a href='https://stepik.org/catalog'><a href='https://joomlaforum.ru'>stepik</a></a>? 
+    </p>
+  </fieldset>
+  <fieldset id="another fieldset">
+    <legend>#contents</legend>
+    <p>
+      Как насчёт того, чтобы прочитать <a href="http://wikipedia.org">Википедию</a> или посетить 
+      <a href="http://w3.org"><i>W3.org </i></a> и узнать о современных стандартах? 
+      А может пройти новый курс на <a href='https://stepik.org/catalog'><a href='https://joomlaforum.ru'>stepik</a></a>? 
+    </p>
+  </fieldset>
+  <script>
+    const contents = document.querySelector('#contents');
+    document.onclick = function(event) {
+      const target = event.target;
+      
+      if (target.closest('a') && contents.contains(target)) {
+        return handleEvent(target.closest('a').getAttribute('href'));
+      }
+      
+      function handleEvent(link){
+        const result = confirm(`Follow the ${link}?`);
+        if (!result) {
+          event.preventDefault();
+        }
+      }
+    };
+  </script>
+
+</body>
+
+</html>

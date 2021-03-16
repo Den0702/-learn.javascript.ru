@@ -1,0 +1,26 @@
+<!doctype html>
+<script src="https://ru.js.cx/test/libs.js"></script>
+<script src="test.js"></script>
+<script>
+
+  function filterRangeInPlace(arr, a, b) {
+
+    for (let i = 0; i < arr.length; i++) {
+
+      if (a > arr[i] || arr[i] > b) {
+        arr.splice(i, 1);
+        i--;
+      }
+    }
+
+  }
+
+  let arr = [5, 3, 8, 1];
+
+  filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+  console.log(arr); // [3, 1]
+
+</script>
+
+</html>

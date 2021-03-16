@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div data-widget-name="menu">Choose the genre</div>
+
+  <script>
+    /* your code */
+		const elem = document.querySelector('[data-widget-name]');
+	
+		let elemAttrValue = elem.getAttribute('data-widget-name');
+		alert(elemAttrValue);
+		
+		/* или так: */
+		elemAttrValue = elem.dataset.widgetName;
+		alert(elemAttrValue);
+  </script>
+</body>
+</html>

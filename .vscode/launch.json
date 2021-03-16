@@ -1,0 +1,34 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch file (Chrome)",
+			"request": "launch",
+			"type": "pwa-chrome",
+			"file": "${file}"
+		},
+		
+	
+	{
+		"name": "Launch file (Node.js)",
+		"program": "${file}",
+		"request": "launch",
+		"skipFiles": [
+			"<node_internals>/**"
+		],
+		"type": "pwa-node"
+	},
+		{
+			"type": "firefox",
+			"request": "launch",
+			"reAttach": true,
+			"name": "Launch file (Firefox)",
+			"file": "${file}"
+		},
+	
+	
+	]
+}

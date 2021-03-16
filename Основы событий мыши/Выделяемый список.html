@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .selected {
+      background: #0f0;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  Кликни на элемент списка, чтобы выделить его.
+  <br>
+
+  <ul id="ul">
+    <li>Кристофер Робин</li>
+    <li>Винни Пух</li>
+    <li>Тигра</li>
+    <li>Кенга</li>
+    <li>Кролик. Просто Кролик.</li>
+  </ul>
+
+  <script>
+    // ...ваш код...
+    const list = document.querySelector('#ul');
+    list.addEventListener('click', handleClick);
+    list.addEventListener('mousedown', handleMouseDown);
+
+    function handleClick(event) {
+      const target = event.target;
+
+      if (target.tagName === "LI") {
+        if (event.metaKey || event.ctrlKey) {
+          toggleSelectedLi(target);
+        } else {
+          singleSelectedLi(target);
+        }
+      }
+    }
+
+    function toggleSelectedLi(li) {
+      /* if (li.className === 'selected') {
+        li.className = '';
+      } else {
+        li.className = 'selected';
+      } */
+      li.classList.toggle('selected');
+    }
+
+    function singleSelectedLi(li) {
+      /* if (li.classList.contains('selected')) {
+        li.classList.remove('selected');
+      } else {
+        li.classList.add('selected');
+      } */
+      for (const elem of list.querySelectorAll('.selected')) {
+        /* if (elem === li) { - более ресурсозатратное решение, тк идет n проверок в if, где n - кол-во эл-тов
+          continue;           
+        } */
+        /* if (!(elem === li)) { - еще более ресурсозатратное решение
+          elem.classList.remove('selected');
+        } */
+        elem.classList.remove('selected');
+      }
+      li.classList.add('selected');
+    }
+
+    function handleMouseDown() {
+      event.preventDefault();//нельзя return false, если обработчик повешен через eventListetner
+    };
+  </script>
+
+</body>
+
+</html>

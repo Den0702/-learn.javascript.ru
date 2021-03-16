@@ -1,0 +1,21 @@
+<script>
+
+	function sumInput() {
+
+		let sum = 0;
+
+		while (true) {
+			let num = prompt('Введите число в массив', 0);
+
+			if (isFinite(num) && num !== '' && num !== null) {
+				sum += +num;
+			} else {
+				break;
+			}
+		}
+
+		return sum;
+	}
+
+	alert(sumInput());
+</script>

@@ -1,0 +1,22 @@
+<script>
+	let vasya = { name: 'Vasya', surname: 'Pupkin', id: 1 };
+	let petya = { name: 'Petya', surname: 'Ivanov', id: 2 };
+	let masha = { name: 'Masha', surname: 'Petrova', id: 3 };
+
+	let users = [vasya, petya, masha];
+
+	let usersMapped = [];
+
+	users.map(user => {
+
+		let newObj = {};
+		newObj['fullName'] = `${user['name']} ${user['surname']}`;
+		newObj['id'] = `${user['id']}`;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+		
+		usersMapped.push(newObj);
+	});
+
+
+	console.log(usersMapped[0].id);
+	console.log(usersMapped[0].fullName);
+</script>

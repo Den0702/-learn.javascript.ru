@@ -1,0 +1,10 @@
+<script>
+	'use strict'
+	let obj, method;
+
+	obj = {
+		go: function () { console.log(this); }
+	};
+
+	(obj.go || obj.stop)();
+</script>
